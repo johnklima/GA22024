@@ -6,15 +6,19 @@ using UnityEngine;
 public class InteractingObject : MonoBehaviour
 {
     public bool interacting = false;
+    private bool wasProbed = false;
+
     private CameraProbe cameraProbe;
+    private HighlightObject highlight;
 
     // Start is called before the first frame update
     void Start()
     {
         //more efficient to get the component upfront
+        //could also make it public, and set it manually in the editor. yeah, whatever...
         cameraProbe = Camera.main.GetComponent<CameraProbe>();
 
-        //could also make it public, and set it manually in the editor. yeah, whatever...
+        highlight = transform.GetComponent<HighlightObject>();
         
     }
 
@@ -24,7 +28,15 @@ public class InteractingObject : MonoBehaviour
         //meaning if the camera is looking at me
         if(cameraProbe.probeResult == transform)
         {
+
+            wasProbed = true;
+
+            if (highlight)
+                highlight.Highlight(true, 0.75f);
+            
+            
             Debug.Log("Probing Me " + transform.name);
+
             if (Input.GetKeyDown(KeyCode.E))
             {                
                 interacting = true;
@@ -52,8 +64,19 @@ public class InteractingObject : MonoBehaviour
                 
             }
         }
+        else
+        {
+            if (wasProbed)
+            {
+                wasProbed = false;
+                if (highlight)
+                    highlight.Highlight(false, 0);
 
-        if(interacting)
+            }
+
+        }
+
+        if (interacting)
         {
             //do something
             Debug.Log("I am interacting");
@@ -71,7 +94,7 @@ public class InteractingObject : MonoBehaviour
 
 
         }
-
+        
 
 
     }

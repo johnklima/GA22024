@@ -19,7 +19,7 @@ public class CameraProbe : MonoBehaviour
         //probe on anything start a bit in front of the camera
         if (Physics.Raycast(transform.position + transform.forward, transform.forward, out RaycastHit hitInfo, probeDepth) )
         {
-            Debug.Log(hitInfo.collider.name);
+            Debug.Log("Camera probing " + hitInfo.collider.name);
             probeResult = hitInfo.collider.transform;
 
            
