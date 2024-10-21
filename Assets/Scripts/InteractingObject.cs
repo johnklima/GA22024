@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InteractingObject : MonoBehaviour
+{
+
+    private CameraProbe cameraProbe;
+    private HighlightObject highlight;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //more efficient to get the component upfront
+        //could also make it public, and set it manually in the editor. yeah, whatever...
+        cameraProbe = Camera.main.GetComponent<CameraProbe>();
+        highlight = transform.GetComponent<HighlightObject>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (cameraProbe.probeResult == transform)
+        {
+            Debug.Log("Probing Me " + transform.name);
+
+            if(highlight)
+                highlight.Highlight(true, 0.75f);
+
+        }
+        else 
+        {
+            if (highlight)
+                highlight.Highlight(false, 0);
+
+        }
+
+    }
+}

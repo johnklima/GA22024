@@ -15,7 +15,7 @@ public class SimpleTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        source.clip.LoadAudioData();
+        //source.clip.LoadAudioData();
             
     }
 
