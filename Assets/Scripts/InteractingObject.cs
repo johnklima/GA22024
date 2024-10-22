@@ -7,6 +7,8 @@ public class InteractingObject : MonoBehaviour
 
     private CameraProbe cameraProbe;
     private HighlightObject highlight;
+    private bool wasHighlighting = false;
+
     public float intensity = 0.8f;
 
     // Start is called before the first frame update
@@ -26,14 +28,22 @@ public class InteractingObject : MonoBehaviour
         {
             Debug.Log("Probing Me " + transform.name);
 
-            if(highlight)
+            if(highlight )
+            {
                 highlight.Highlight(true, intensity);
+                wasHighlighting = true;
+            }
+                
 
         }
         else 
         {
-            if (highlight)
+            if (highlight && wasHighlighting)
+            {
                 highlight.Highlight(false, 0);
+
+            }
+                
 
         }
 
