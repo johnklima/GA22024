@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleTrigger : MonoBehaviour
+public class KeyPickup : MonoBehaviour
 {
-    public AudioSource source;
+
+    public PlayerInventory toAdd;
 
     // Start is called before the first frame update
     void Start()
@@ -15,16 +16,15 @@ public class SimpleTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //source.clip.LoadAudioData();
-            
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            Debug.Log(other.name + " hit me " + transform.name);
-            source.Play();
+            toAdd.inventory[0] = transform;
+            transform.gameObject.SetActive(false);
         }
     }
 }
