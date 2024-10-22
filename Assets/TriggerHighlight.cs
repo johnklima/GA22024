@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class TriggerHighlight : MonoBehaviour
 {
+    public float intensity = 0.65f;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            transform.parent.GetComponent<HighlightObject>().Highlight(true, 0.5f);
+            transform.parent.GetComponent<HighlightObject>().Highlight(true, intensity);
 
         }
     }

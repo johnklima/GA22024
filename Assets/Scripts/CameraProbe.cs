@@ -17,7 +17,7 @@ public class CameraProbe : MonoBehaviour
     void Update()
     {
         
-        if (Physics.Raycast(transform.position + transform.forward, transform.forward, out RaycastHit hitInfo, probeDepth))
+        if (Physics.Raycast(transform.position , transform.forward, out RaycastHit hitInfo, probeDepth))
         {
 
             Debug.Log("Camera probing " + hitInfo.collider.name);
