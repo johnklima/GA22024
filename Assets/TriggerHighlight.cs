@@ -10,6 +10,7 @@ public class TriggerHighlight : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            Debug.Log("player enter trigger");
             transform.parent.GetComponent<HighlightObject>().Highlight(true, intensity);
 
         }
@@ -19,7 +20,7 @@ public class TriggerHighlight : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
+            Debug.Log("player exit trigger");
             transform.parent.GetComponent<HighlightObject>().Highlight(false, 0);
 
         }
