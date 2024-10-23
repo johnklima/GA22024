@@ -11,13 +11,16 @@ public class DoorTriggerOpen : MonoBehaviour
     public PlayerInventory invCheck;
 
 
-    private bool isDoorOpen = false;
-    private bool isE_pressed = false;
+    public bool isDoorOpen = false;
+    public bool isE_pressed = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //just to be sure
+        isDoorOpen = false;
+        isE_pressed = false;
+
     }
 
     // Update is called once per frame
@@ -29,12 +32,19 @@ public class DoorTriggerOpen : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        //just to be sure
+        isE_pressed = false;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         int keyCount = invCheck.inventory.Length ;
 
         if ( other.tag == "Player" )
         {
+            Debug.Log("player in door trigger");
             if (isDoorOpen == false     &&
             isE_pressed && keyCount > 0  )
             {
@@ -44,10 +54,8 @@ public class DoorTriggerOpen : MonoBehaviour
                 isE_pressed = false;
             }
 
-        } 
-                
+        }              
         
-    }
-   
+    }  
 
 }
