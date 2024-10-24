@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DoorTriggerOpen : MonoBehaviour
@@ -8,7 +9,7 @@ public class DoorTriggerOpen : MonoBehaviour
 
     public Animation doorAnimation;
     public Transform [] keysNeeded;  //in no order, or require it
-    public PlayerInventory invCheck;
+    public PlayerInventory keyInventory;
 
 
     public bool isDoorOpen = false;
@@ -43,22 +44,25 @@ public class DoorTriggerOpen : MonoBehaviour
         int keyCount = 0;
         
         //iterate the player's key inventory
-        for(int i = 0; i < invCheck.inventory.Length; i++)
+        for(int i = 0; i < keyInventory.inventory.Length; i++)
         {
-            if (invCheck.inventory[i] != null)
+            if (keyInventory.inventory[i] != null)
             {                
                 keyCount++;
             }
             
         }
-
+        //test order not just count
+        keyCount = 0;
 
         if ( other.tag == "Player" )
         {
             Debug.Log("player in door trigger");
-            if (isDoorOpen == false                                  &&
-            (isE_pressed && keyCount == keysNeeded.Length            ||
-            invCheck.inventory.ToString() == keysNeeded.ToString() )  )
+            if (isDoorOpen == false                              &&
+                isE_pressed                                      && 
+                ( keyCount == keysNeeded.Length                  ||
+                keyInventory.inventory.ToCommaSeparatedString()  == 
+                keysNeeded.ToCommaSeparatedString() )             )
             {
                 Debug.Log("Player Open Door");
                 doorAnimation.Play();

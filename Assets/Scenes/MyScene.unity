@@ -157,7 +157,7 @@ MonoBehaviour:
   - {fileID: 1927994395}
   - {fileID: 887926063}
   - {fileID: 478127979}
-  invCheck: {fileID: 529386702}
+  keyInventory: {fileID: 529386702}
   isDoorOpen: 0
   isE_pressed: 0
 --- !u!65 &418088411

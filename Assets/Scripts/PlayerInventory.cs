@@ -6,14 +6,16 @@ public class PlayerInventory : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform[] inventory;
-    void Start()
+    
+    public int GetFreeSlot()
     {
-        
+        for(int i = 0; i < inventory.Length; i++)
+        {
+            if (inventory[i] == null)
+                return i;
+        }
+
+        return -1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
