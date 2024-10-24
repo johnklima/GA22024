@@ -153,8 +153,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnimation: {fileID: 2035174719}
-  keyNeeded: {fileID: 1927994395}
+  keysNeeded:
+  - {fileID: 1927994395}
+  - {fileID: 887926063}
+  - {fileID: 478127979}
   invCheck: {fileID: 529386702}
+  isDoorOpen: 0
+  isE_pressed: 0
 --- !u!65 &418088411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -950,7 +955,7 @@ Transform:
   m_GameObject: {fileID: 887926059}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.1, y: 1, z: -4.31}
+  m_LocalPosition: {x: -1.88, y: 1, z: -4.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1430,7 +1435,7 @@ Transform:
   m_GameObject: {fileID: 1927994391}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -4.31}
+  m_LocalPosition: {x: 1.59, y: 1, z: -4.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
