@@ -27,6 +27,12 @@ public class KeyPickup : MonoBehaviour
         {
             int index = toAdd.GetFreeSlot();
 
+            if(index < 0)
+            {
+                Debug.Log("Out of slots");
+                return;
+            }
+
             toAdd.inventory[index] = transform  ;
             transform.gameObject.SetActive(false);
             

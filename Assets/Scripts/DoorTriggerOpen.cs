@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -52,8 +51,25 @@ public class DoorTriggerOpen : MonoBehaviour
             }
             
         }
-        //test order not just count
-        keyCount = 0;
+
+        keyCount = 0;   //lets test the right keys in any order
+        for (int i = 0; i < keyInventory.inventory.Length; i++)
+        {
+            if (keyInventory.inventory[i] != null)
+            {
+                for(int j = 0; j < keysNeeded.Length; j++)
+                {
+                    if (keysNeeded[j] == keyInventory.inventory[i])
+                    {
+                        keyCount++;
+                    }
+
+                }
+            }
+
+        }
+
+
 
         if ( other.tag == "Player" )
         {
