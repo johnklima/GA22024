@@ -14,6 +14,11 @@ public class DoorTriggerOpen : MonoBehaviour
     public bool isDoorOpen = false;
     public bool isE_pressed = false;
 
+    public Transform doorGeom;
+    private CameraProbe cameraProbe;
+    private ShowEMsg eMsg;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +26,8 @@ public class DoorTriggerOpen : MonoBehaviour
         isDoorOpen = false;
         isE_pressed = false;
 
+        cameraProbe = Camera.main.GetComponent<CameraProbe>();
+        eMsg = GetComponent<ShowEMsg>();
     }
 
     // Update is called once per frame
@@ -30,6 +37,16 @@ public class DoorTriggerOpen : MonoBehaviour
         {
             isE_pressed = true;
         }
+
+        if (cameraProbe.probeResult == doorGeom)
+        {
+            eMsg.ShowE(true);
+        }
+        else
+        {
+            eMsg.ShowE(false);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,6 +101,7 @@ public class DoorTriggerOpen : MonoBehaviour
                 doorAnimation.Play();
                 isDoorOpen = true;
                 isE_pressed = false;
+                eMsg.KillE();
             }
 
         }              

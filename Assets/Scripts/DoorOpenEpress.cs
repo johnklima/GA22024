@@ -8,6 +8,10 @@ public class DoorOpenEpress : MonoBehaviour
     public bool isE_pressed = false;
 
     public Animation doorAnimation;
+    public Transform doorGeom;
+
+    private CameraProbe cameraProbe;
+    private ShowEMsg eMsg;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +19,9 @@ public class DoorOpenEpress : MonoBehaviour
         //just to be sure
         isDoorOpen = false;
         isE_pressed = false;
+
+        cameraProbe = Camera.main.GetComponent<CameraProbe>();
+        eMsg = GetComponent<ShowEMsg>();
     }
 
     private void Update()
@@ -22,6 +29,15 @@ public class DoorOpenEpress : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             isE_pressed = true;
+        }
+
+        if(cameraProbe.probeResult == doorGeom)
+        {
+            eMsg.ShowE(true);
+        }
+        else
+        {
+            eMsg.ShowE(false);
         }
 
     }
@@ -38,6 +54,7 @@ public class DoorOpenEpress : MonoBehaviour
                 Debug.Log("Player Opens Door E Press");
                 doorAnimation.Play();
                 isDoorOpen = true;
+                eMsg.KillE();
             }
         }
        
