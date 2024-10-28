@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 418088412}
   - component: {fileID: 418088411}
   - component: {fileID: 418088410}
+  - component: {fileID: 418088413}
   m_Layer: 0
   m_Name: Door (0)
   m_TagString: Untagged
@@ -525,6 +526,7 @@ MonoBehaviour:
   keyInventory: {fileID: 1068819114}
   isDoorOpen: 0
   isE_pressed: 0
+  doorGeom: {fileID: 681194188}
 --- !u!65 &418088411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -562,6 +564,19 @@ Transform:
   - {fileID: 2035174718}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418088413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418088409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85be1469b4ad13e4eb210824ee85bbcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Etext: {fileID: 341353901}
 --- !u!1 &421682904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,7 +1717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9671413747975af4383b0edfe677faae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  probeDepth: 2
+  probeDepth: 3
   probeResult: {fileID: 0}
 --- !u!114 &963194231
 MonoBehaviour:
