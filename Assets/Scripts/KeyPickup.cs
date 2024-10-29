@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyPickup : MonoBehaviour
 {
 
     public PlayerInventory toAdd;
-    
+    public Texture InvImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +35,11 @@ public class KeyPickup : MonoBehaviour
                 return;
             }
 
-            toAdd.inventory[index] = transform  ;
+
+            toAdd.Add(index, InvImage, transform);
+
             transform.gameObject.SetActive(false);
+           
             
         }
     }
