@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
     public RawImage selected;
 
     public Transform activeItem;
-    public int activeItemIndex;
+    public int activeItemIndex = -1;
     
     public int GetFreeSlot()
     {
@@ -24,8 +24,17 @@ public class PlayerInventory : MonoBehaviour
         return -1;
     }
 
-    public void Add(int slot, Texture image, Transform obj)
+    public void Add(Texture image, Transform obj)
     {
+        int slot = GetFreeSlot();
+
+        if(slot < 0)
+        {
+            Debug.Log("No slots in inventory");
+            return;
+
+        }
+
         inventory[slot] = obj;
         guiSlot[slot].texture = image;
         guiSlot[slot].gameObject.SetActive(true);
@@ -57,18 +66,25 @@ public class PlayerInventory : MonoBehaviour
             activeItemIndex = 3;
         }
 
+        //nothing selected yet?
+        if(activeItemIndex < 0)
+        {
+            return;
+        }
+
+        //make sure I have one before I hide it
         if (activeItem)
         {
             activeItem.gameObject.SetActive(false);
         }
-            
-            
+       
+        //try to activate (slot might be null)     
         activeItem = inventory[activeItemIndex];
         if(activeItem)
         {
             activeItem.parent = Camera.main.transform;
             activeItem.transform.localPosition = Vector3.zero
-                                               + Camera.main.transform.forward * 3;
+                                               + Vector3.forward * 3;
 
             activeItem.gameObject.SetActive(true);
 
