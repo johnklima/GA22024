@@ -44,9 +44,12 @@ public class NPCmovement : MonoBehaviour
         }
         else if (isFollowPlayer)
         {
+            
             if (agent.remainingDistance < 2.0f)
             {
                 agent.isStopped = true;
+
+                //ATTACK or HAVE A CONVERSATION your choice
             }
 
             if (Vector3.Magnitude(target.position - transform.position) > 6.0f)

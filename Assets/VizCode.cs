@@ -9,10 +9,13 @@ public class VizCode : MonoBehaviour
 
     private Transform owner;
 
+    private NPCmovement movement;
+
     // Start is called before the first frame update
     void Start()
     {
-        owner = transform.parent;    
+        owner = transform.parent;
+        movement = owner.GetComponent<NPCmovement>();
     }
 
     // Update is called once per frame
@@ -39,8 +42,12 @@ public class VizCode : MonoBehaviour
 
                 Debug.Log("I can see " + lookingFor.name);
                 Debug.DrawLine(owner.position, lookingFor.position, Color.red);
-                
+
                 //Do something
+                movement.target = lookingFor;
+                movement.isFollowPlayer = true;
+                movement.isPatrolling = false;
+
 
             }
 
