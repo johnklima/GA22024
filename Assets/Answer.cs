@@ -17,14 +17,16 @@ public class Answer : MonoBehaviour
         answerUI.text = textToShow;
     }
 
-    public void AnswerResponse()
+    public bool AnswerResponseDone()
     {
         if(transform.childCount > 0)
         {
-
             transform.GetChild(0).gameObject.SetActive(true);
+            return false;  //not the end
         }
 
+        //the end
+        return true;
     }
 
 }

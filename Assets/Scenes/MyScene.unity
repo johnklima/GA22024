@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogFrame: {fileID: 1399157173}
   currentQuestion: {fileID: 0}
+  npcMove: {fileID: 1351961202}
 --- !u!1 &34795574
 GameObject:
   m_ObjectHideFlags: 0

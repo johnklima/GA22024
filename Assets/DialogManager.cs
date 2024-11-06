@@ -7,6 +7,8 @@ public class DialogManager : MonoBehaviour
 {
     public Image dialogFrame;
     public Question currentQuestion;
+    public NPCmovement npcMove;
+    public bool isComplete = false;
     
     // Start is called before the first frame update
     void Start()
@@ -22,13 +24,34 @@ public class DialogManager : MonoBehaviour
 
     public void ShowDialog(bool show)
     {
+        if (isComplete)
+            return;
+
+
         dialogFrame.gameObject.SetActive(show);
     }
 
     public void AnswerSelected(int which)
     {
         Transform answer = currentQuestion.transform.GetChild(which);
-        answer.GetComponent<Answer>().AnswerResponse();
+        
+        //are we at the end of the dialog chain?
+        bool endDialog = answer.GetComponent<Answer>().AnswerResponseDone();
+        
+        if(endDialog)
+        {
+            EndDialog();
+        }
+    }
+    public void EndDialog()
+    {
+        //pass it up the chain
+        npcMove.EndDialog();
 
+        //hide dialog UI
+        dialogFrame.gameObject.SetActive(false);
+
+        //reset dialog or just disable it?
+        isComplete = true;
     }
 }

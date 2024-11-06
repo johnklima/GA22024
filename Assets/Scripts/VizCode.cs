@@ -24,7 +24,7 @@ public class VizCode : MonoBehaviour
         //Debug.DrawLine(owner.position, lookingFor.position, Color.yellow);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.transform == lookingFor )
         {

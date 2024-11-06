@@ -8,6 +8,7 @@ public class NPCmovement : MonoBehaviour
     public bool isPatrolling;
     public bool isFollowPlayer;
     public bool isInDialog;
+    public bool isDoneWithPlayer = false;
     public DialogManager dialogManager;
 
 
@@ -46,7 +47,7 @@ public class NPCmovement : MonoBehaviour
             agent.isStopped = false;
 
         }
-        else if (isFollowPlayer)
+        else if (isFollowPlayer && isDoneWithPlayer == false)
         {
             
             if (agent.remainingDistance < 2.0f)
@@ -63,9 +64,18 @@ public class NPCmovement : MonoBehaviour
                 agent.SetDestination(target.position);
             }
         }
+        else if (isDoneWithPlayer)
+        {
+            //ignores player from now on - force patrol
+            isPatrolling = true;
+        }
 
-
-
-
+    }
+    public void EndDialog()
+    {
+        isFollowPlayer = false;
+        isInDialog = false;
+        isPatrolling = true;
+        isDoneWithPlayer = true;
     }
 }
