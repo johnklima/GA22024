@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 20351213}
+  - component: {fileID: 20351214}
   m_Layer: 0
   m_Name: DialogManager
   m_TagString: Untagged
@@ -154,6 +155,19 @@ Transform:
   - {fileID: 1404388241}
   m_Father: {fileID: 1351961201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &20351214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20351212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0020dd27db11eb74d9cb8257586374fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogFrame: {fileID: 1399157173}
 --- !u!1 &34795574
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answerUI: {fileID: 998707055}
+  textToShow: Yes I am, can you tell me about this town?
 --- !u!1 &229195073
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answerUI: {fileID: 1145378481}
+  textToShow: No, I have been away for a long time.
 --- !u!1 &275844305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionUI: {fileID: 98632930}
+  textToShow: 'This town is haunted. '
 --- !u!1 &529386695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,6 +2267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionUI: {fileID: 98632930}
+  textToShow: Oh, so you must know Ragnar the blacksmith.
 --- !u!1 &821702912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,6 +2481,54 @@ Transform:
   - {fileID: 942401916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &846550045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 846550046}
+  - component: {fileID: 846550047}
+  m_Layer: 0
+  m_Name: Lies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &846550046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846550045}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1055245940}
+  - {fileID: 1041891453}
+  m_Father: {fileID: 2035790639}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &846550047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846550045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ff789667fe4ab469dad0153f0911a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionUI: {fileID: 98632930}
+  textToShow: You lie! There is no Ragnar in this town.
 --- !u!1 &852620032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3160,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998707053}
   m_CullTransparentMesh: 1
+--- !u!1 &1041891452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1041891453}
+  - component: {fileID: 1041891454}
+  m_Layer: 0
+  m_Name: Answer2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1041891453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041891452}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 846550046}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1041891454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041891452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cac6581ca923bd48893381978b1b206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerUI: {fileID: 1145378481}
+  textToShow: You caught me, prepare to die!
+--- !u!1 &1055245939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055245940}
+  - component: {fileID: 1055245941}
+  m_Layer: 0
+  m_Name: Answer1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055245940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055245939}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 846550046}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055245941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055245939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cac6581ca923bd48893381978b1b206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerUI: {fileID: 998707055}
+  textToShow: Oh I must be confused, I have been away a long time.
 --- !u!1 &1068819107
 GameObject:
   m_ObjectHideFlags: 0
@@ -3501,6 +3659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answerUI: {fileID: 1145378481}
+  textToShow: Oh that's claptrap. I don't believe in ghosts.
 --- !u!1 &1207636935 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1748967523045512, guid: 3067d9bc573646846a758efc3071a8f2, type: 3}
@@ -3829,6 +3988,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPatrolling: 1
   isFollowPlayer: 0
+  isInDialog: 0
+  dialogManager: {fileID: 20351214}
   target: {fileID: 1431741457}
   pathPoints:
   - {fileID: 1431741457}
@@ -3853,7 +4014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1399157172
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3928,7 +4089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1404388241
 Transform:
   m_ObjectHideFlags: 0
@@ -3959,6 +4120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionUI: {fileID: 98632930}
+  textToShow: Hello! I'm Lythia. Are you new to town?
 --- !u!1 &1431741456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4214,6 +4376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answerUI: {fileID: 998707055}
+  textToShow: Tell me more.
 --- !u!1 &1534301154
 GameObject:
   m_ObjectHideFlags: 0
@@ -4365,6 +4528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answerUI: {fileID: 1145378481}
+  textToShow: No, I grew up here.
 --- !u!1 &1778222878
 GameObject:
   m_ObjectHideFlags: 0
@@ -4817,7 +4981,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 846550046}
   m_Father: {fileID: 810749220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2035790640
@@ -4833,6 +4998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answerUI: {fileID: 998707055}
+  textToShow: Of course!
 --- !u!1 &2054717254
 GameObject:
   m_ObjectHideFlags: 0

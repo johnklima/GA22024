@@ -7,7 +7,9 @@ public class Answer : MonoBehaviour
 {
 
     public Text answerUI;
-    public string textToShow;
+    
+    //make a nice big box in editor
+    [TextArea(10, 10)] public string textToShow;
 
     // Start is called before the first frame update
     void Start()
@@ -15,5 +17,14 @@ public class Answer : MonoBehaviour
         answerUI.text = textToShow;
     }
 
-    
+    public void AnswerResponse()
+    {
+        if(transform.childCount > 0)
+        {
+
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+    }
+
 }

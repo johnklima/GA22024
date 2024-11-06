@@ -7,6 +7,9 @@ public class NPCmovement : MonoBehaviour
 {
     public bool isPatrolling;
     public bool isFollowPlayer;
+    public bool isInDialog;
+    public DialogManager dialogManager;
+
 
     public Transform target;
     private NavMeshAgent agent;
@@ -51,6 +54,7 @@ public class NPCmovement : MonoBehaviour
                 agent.isStopped = true;
 
                 //ATTACK or HAVE A CONVERSATION your choice
+                dialogManager.ShowDialog(true);
             }
 
             if (Vector3.Magnitude(target.position - transform.position) > 6.0f)
