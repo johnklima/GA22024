@@ -40,6 +40,7 @@ public class NPCmovement : MonoBehaviour
             }
 
             agent.SetDestination(target.position);
+            agent.isStopped = false;
 
         }
         else if (isFollowPlayer)
