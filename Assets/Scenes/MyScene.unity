@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogFrame: {fileID: 1399157173}
+  currentQuestion: {fileID: 0}
 --- !u!1 &34795574
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +735,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 300476235}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 20351214}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: AnswerSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &300476235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,6 +1276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionUI: {fileID: 98632930}
+  manager: {fileID: 20351214}
   textToShow: 'This town is haunted. '
 --- !u!1 &529386695
 GameObject:
@@ -2267,6 +2281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionUI: {fileID: 98632930}
+  manager: {fileID: 20351214}
   textToShow: Oh, so you must know Ragnar the blacksmith.
 --- !u!1 &821702912
 GameObject:
@@ -2528,6 +2543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionUI: {fileID: 98632930}
+  manager: {fileID: 20351214}
   textToShow: You lie! There is no Ragnar in this town.
 --- !u!1 &852620032
 GameObject:
@@ -3398,14 +3414,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068819107}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.69, y: 1.74, z: -20.22}
+  m_LocalRotation: {x: -0, y: -0.89161414, z: -0, w: 0.45279592}
+  m_LocalPosition: {x: -7.69, y: 1.74, z: -6.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -126.154, z: 0}
 --- !u!114 &1068819114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4120,6 +4136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionUI: {fileID: 98632930}
+  manager: {fileID: 20351214}
   textToShow: Hello! I'm Lythia. Are you new to town?
 --- !u!1 &1431741456
 GameObject:
@@ -4611,7 +4628,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1778222881}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 20351214}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: AnswerSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1778222881
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Question : MonoBehaviour
 {
 
     public Text questionUI;
+    public DialogManager manager;
 
     //make a nice big box in editor
     [TextArea(10, 10)] public string textToShow;
@@ -15,6 +16,7 @@ public class Question : MonoBehaviour
     void Start()
     {
         questionUI.text = textToShow;
+        manager.currentQuestion = this;
     }
 
 }
