@@ -16,6 +16,8 @@ public class Occlusion : MonoBehaviour
     Color color;
     Transform obj;
 
+    public bool doCamera = false;
+    public bool doTransparency = true;
 
     // Start is called before the first frame update
     void Start()
@@ -30,35 +32,46 @@ public class Occlusion : MonoBehaviour
     void Update()
     {
 
+        if(doCamera)
+        {
+            doCamMove();
+        }
 
-        if(obj)
+        if(doTransparency)
+        {
+            doMaterialTransparency();
+        }
+        
+    }
+
+    void doMaterialTransparency()
+    {
+        if (obj && isOccluding)
         {
 
             renderer = obj.GetComponent<Renderer>();
             material = renderer.material;
             color = material.color;
 
-
             material.color = new UnityEngine.Color(color.r, color.g, color.b, 1.0f);
-
-
+            isOccluding = false;
 
         }
 
 
         // Bit shift the index of the layer (6) to get a bit mask
         int layerMask = 1 << 6;
-        
+
         Vector3 dir = (player.position - transform.position);
         float dist = Vector3.Magnitude(dir) - 0.5f;
 
         dir.Normalize();
 
         if (Physics.Raycast(transform.position, dir,
-                            out RaycastHit hitInfo,dist,layerMask))
+                            out RaycastHit hitInfo, dist, layerMask))
         {
 
-            Debug.Log( hitInfo.collider.name + " occluding player");
+            Debug.Log(hitInfo.collider.name + " occluding player");
 
             obj = hitInfo.collider.transform;
             renderer = obj.GetComponent<Renderer>();
@@ -67,16 +80,16 @@ public class Occlusion : MonoBehaviour
 
 
             material.color = new UnityEngine.Color(color.r, color.g, color.b, 0.5f);
-           
 
+            isOccluding = true;
         }
         else
         {
             obj = null;
         }
 
-    }
 
+    }
 
     void doCamMove()
     {
