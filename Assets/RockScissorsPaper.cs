@@ -14,6 +14,11 @@ public class RockScissorsPaper : MonoBehaviour
     private const int PAPER = 1;
     private const int ROCK = 2;
 
+    const int WIN = 0;
+    const int LOSE = 1;
+    const int DRAW = 2;
+
+
     public int Wins = 0;
     public int Losses = 0;
     public int Draws = 0;
@@ -23,17 +28,18 @@ public class RockScissorsPaper : MonoBehaviour
     public void DoAnimTrigger()
     {
 
-        Debug.Log("DO ANIM TRGGER STUFF ");
-        fight = true;
+        Debug.Log("DO ANIM TRIGGER STUFF ");
+       
 
     }
     // Update is called once per frame
     void Update()
     {
+        
         if(fight)
         {
             int me = Fight();
-            int him = opponent.Fight();
+            int him = opponent.Fight(); //sorry for the sexist assumption
 
             Evaluate(me, him);
 
@@ -42,71 +48,76 @@ public class RockScissorsPaper : MonoBehaviour
     }
     public int Fight()
     {
+        
         return Random.Range(0, 3);
        
     }
     void Evaluate(int me, int him)
     {
-        string[] winlose = new string[4] { " I win", " I lose", "We tie", " ERROR " };
+        string[] winlose = new string[3] { " I win", " I lose", "We tie" };
 
-        int v = 3;  //default to error
+        
+
+        int play = -1;  //default to error
+
+
 
         //scissors beats paper, etc...
         if (me == SCISSORS && him == PAPER)
         {
-            v = 0;
+            play = WIN;
         }
 
         if (me == PAPER && him == ROCK)
         {
 
-            v = 0;
+            play = WIN;
 
         }
         if (me == ROCK && him == SCISSORS)
         {
-            v = 0;
+            play = WIN;
         }
         if (me == PAPER && him == SCISSORS)
         {
-            v = 1;
+            play = LOSE;
         }
         if (me == SCISSORS && him == ROCK)
         {
-            v = 1;
+            play = LOSE;
         }
         if (me == ROCK && him == PAPER)
         {
-            v = 1;
+            play = LOSE;
         }
         if (me == him)
         {
-            v = 2;
+            play = DRAW;
 
         }
 
-        if (v == 0)
+        if (play == WIN)
         {
             Wins++;
             opponent.Losses++;
         }
 
-        if (v == 1)
+        if (play == LOSE)
         {
             Losses++;
             opponent.Wins++;
         }
-        if (v == 2)
+        if (play == DRAW)
         {
             Draws++;
             opponent.Draws++;
 
         }
 
-        Debug.Log("me " + response[me] + " vs. him " + response[him] + " -> " + winlose[v]);
+        Debug.Log("me " + response[me] + " vs. him " + response[him] + " -> " + winlose[play]);
 
         //trigger animations after resolution
-        doAnimations(me, him, v);
+        doAnimations(me, him, play);
     }
     void doAnimations(int me, int him, int result)
     {
@@ -128,7 +139,7 @@ public class RockScissorsPaper : MonoBehaviour
 
 
 
-        if (result == 0)
+        if (result == WIN)
         {
             //I win
             animator.SetBool("doVictory", true);
@@ -136,14 +147,14 @@ public class RockScissorsPaper : MonoBehaviour
 
 
         }
-        if (result == 1)
+        if (result == LOSE)
         {
             //I lose
             animator.SetBool("doFalldown", true);
             opponent.animator.SetBool("doVictory", true);
 
         }
-        if (result == 2)
+        if (result == DRAW)
         {
             //we draw
             animator.SetBool("doDraw", true);
@@ -154,7 +165,6 @@ public class RockScissorsPaper : MonoBehaviour
         //fire triggers, after which the results will play
         animator.SetTrigger(response[me]);
         opponent.animator.SetTrigger(response[him]);
-
 
 
     }
