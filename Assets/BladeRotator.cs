@@ -28,15 +28,45 @@ public class BladeRotator : MonoBehaviour
     }
 
     // Update is called once per frame
+    float t = 0;
     void Update()
     {
-        if(openIt)
+
+       
+
+        if (openIt)
         {
-            transform.rotation = openRotation;
+            t += Time.deltaTime;
+            if (t >= 1)
+            {
+                t = 1;
+                openIt = false;
+            }
+
+           Quaternion rot = Quaternion.Slerp(closedRotation, openRotation, t);
+
+            if (openIt == false)
+                t = 0;
+            
+            transform.rotation = rot;
         }
+
         if(closeIt)
         {
-            transform.rotation = closedRotation;
+
+            t += Time.deltaTime;
+            if (t >= 1)
+            {
+                t = 1;
+                closeIt = false;
+            }
+
+            Quaternion rot = Quaternion.Slerp(openRotation, closedRotation, t);
+
+            if (closeIt == false)
+                t = 0;
+
+            transform.rotation = rot;
         }
     }
 }
